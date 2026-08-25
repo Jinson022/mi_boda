@@ -1,0 +1,660 @@
+/* =========================================================
+   INVITADOS PERSONALIZADOS
+========================================================= */
+
+const invitados = {
+
+    "familia-urgiles":
+        "Familia Urgiles",
+
+    "familia-gahona":
+        "Familia Gahona",
+
+    "diego-camacho":
+        "Diego Camacho",
+
+    "familia-gallardo-jimenez":
+        "Familia Gallardo Jiménez",
+
+    "familia-molina":
+        "Familia Molina",
+
+    "familia-herrera-murillo":
+        "Familia Herrera Murillo",
+
+    "gladys-charcopa":
+        "Gladys Charcopa",
+
+    "jazmin-cabrera":
+        "Jazmin Cabrera",
+
+    "nicol-quezada-caleb-erreyes":
+        "Nicol Quezada & Caleb Erreyes",
+
+    "malena-vega":
+        "Malena Vega",
+
+    "jhoana-mogrovejo":
+        "Jhoana Mogrovejo",
+
+    "luis-sanchez":
+        "Luis Sánchez",
+
+    "familia-arreaga-coello":
+        "Familia Arreaga Coello",
+
+    "familia-pambi-pambi":
+        "Familia Pambi Pambi",
+
+    "cesar-gallegos":
+        "Cesar Gallegos",
+
+    "roman-dota-esposa":
+        "Román Dota & Esposa",
+
+    "norma-mendez-ariana":
+        "Norma Méndez & Ariana",
+
+    "esperanza-mora-hija":
+        "Esperanza Mora e Hija",
+
+    "jose-dota-gloria-ortega":
+        "José Dota & Gloria Ortega",
+
+    "marco-dota-esposa-hija":
+        "Marco Dota, Esposa e hija",
+
+    "maycol-dota":
+        "Maycol Dota",
+
+    "martha-dota-indira-camano":
+        "Martha Dota e Indira Camaño",
+
+    "miriam-dota-hijos":
+        "Miriam Dota e hijos",
+
+    "pablo-dota":
+        "Pablo Dota",
+
+    "familia-macas-dota-1":
+        "Familia Macas Dota",
+
+    "familia-macas-dota-2":
+        "Familia Macas Dota",
+
+    "gloria-dota-benjamin-cali":
+        "Gloria Dota & Benjamín Cali",
+
+    "javier-dota":
+        "Javier Dota",
+
+    "stalin-collaguazo-margarita-aguilar":
+        "Stalin Collaguazo & Margarita Aguilar",
+
+    "cristhell-collaguazo":
+        "Cristhell Collaguazo",
+
+    "sandra-collaguazo":
+        "Sandra Collaguazo"
+
+};
+
+
+/* =========================================================
+   MOSTRAR INVITADO
+========================================================= */
+
+function mostrarInvitado() {
+
+    const elemento =
+        document.getElementById(
+            "nombreInvitado"
+        );
+
+
+    if (!elemento) {
+        return;
+    }
+
+
+    const parametros =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const codigo =
+        parametros.get("invitado");
+
+
+    /*
+       Si no existe ningún invitado
+       en la URL, mostramos un texto
+       general.
+    */
+
+    if (!codigo) {
+
+        elemento.textContent =
+            "Invitado especial";
+
+        return;
+    }
+
+
+    /*
+       Busca el código dentro de
+       nuestra lista de invitados.
+    */
+
+    const nombre =
+        invitados[codigo];
+
+
+    /*
+       Si el código existe,
+       mostramos el nombre.
+    */
+
+    if (nombre) {
+
+        elemento.textContent =
+            nombre;
+
+    } else {
+
+        /*
+           Si alguien modifica la URL
+           y coloca un código inexistente,
+           mostramos un texto seguro.
+        */
+
+        elemento.textContent =
+            "Invitado especial";
+
+    }
+
+}
+
+
+/* =========================================================
+   EJECUTAR AL CARGAR LA PÁGINA
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        mostrarInvitado();
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR INVITACIÓN
+========================================================= */
+
+function abrirInvitacion() {
+
+    const sello =
+        document.getElementById("zonaSello");
+
+    const portada =
+        document.getElementById("portada");
+
+    const invitacion =
+        document.getElementById("invitacion");
+
+
+    if (!sello || !portada || !invitacion) {
+        return;
+    }
+
+
+    // Evita doble clic
+    sello.disabled = true;
+
+
+    // Animación del sello
+    sello.classList.add("abriendo");
+
+
+    // Animación de la portada
+    portada.classList.add("cerrando");
+
+
+    // Cuando termina la animación
+    portada.addEventListener(
+        "animationend",
+        function() {
+
+            portada.style.display = "none";
+
+            invitacion.classList.add("visible");
+
+            iniciarCuentaRegresiva();
+
+        },
+        {
+            once: true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CUENTA REGRESIVA
+========================================================= */
+
+function iniciarCuentaRegresiva() {
+
+    const fechaBoda =
+        new Date(
+            "2026-09-25T18:00:00"
+        ).getTime();
+
+
+    const diasEl =
+        document.getElementById("dias");
+
+    const horasEl =
+        document.getElementById("horas");
+
+    const minutosEl =
+        document.getElementById("minutos");
+
+    const segundosEl =
+        document.getElementById("segundos");
+
+
+    if (
+        !diasEl ||
+        !horasEl ||
+        !minutosEl ||
+        !segundosEl
+    ) {
+        return;
+    }
+
+
+    function actualizar() {
+
+        const ahora =
+            new Date().getTime();
+
+
+        const diferencia =
+            fechaBoda - ahora;
+
+
+        if (diferencia <= 0) {
+
+            diasEl.textContent = "00";
+
+            horasEl.textContent = "00";
+
+            minutosEl.textContent = "00";
+
+            segundosEl.textContent = "00";
+
+            clearInterval(intervalo);
+
+            return;
+        }
+
+
+        const dias =
+            Math.floor(
+                diferencia /
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            );
+
+
+        const horas =
+            Math.floor(
+                (
+                    diferencia %
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
+                )
+                /
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            );
+
+
+        const minutos =
+            Math.floor(
+                (
+                    diferencia %
+                    (
+                        1000 *
+                        60 *
+                        60
+                    )
+                )
+                /
+                (
+                    1000 *
+                    60
+                )
+            );
+
+
+        const segundos =
+            Math.floor(
+                (
+                    diferencia %
+                    (
+                        1000 *
+                        60
+                    )
+                )
+                /
+                1000
+            );
+
+
+        diasEl.textContent =
+            String(dias).padStart(2, "0");
+
+
+        horasEl.textContent =
+            String(horas).padStart(2, "0");
+
+
+        minutosEl.textContent =
+            String(minutos).padStart(2, "0");
+
+
+        segundosEl.textContent =
+            String(segundos).padStart(2, "0");
+
+    }
+
+
+    actualizar();
+
+
+    const intervalo =
+        setInterval(
+            actualizar,
+            1000
+        );
+
+}
+
+
+/* =========================================================
+   REPRODUCTOR DE CANCIÓN
+========================================================= */
+
+function toggleCancion() {
+
+    const audio =
+        document.getElementById(
+            "audioCancion"
+        );
+
+    const contenedor =
+        document.querySelector(
+            ".reproductor-cancion"
+        );
+
+    const iconoPlay =
+        document.querySelector(
+            ".icono-play"
+        );
+
+    const iconoPause =
+        document.querySelector(
+            ".icono-pause"
+        );
+
+
+    if (
+        !audio ||
+        !contenedor ||
+        !iconoPlay ||
+        !iconoPause
+    ) {
+        return;
+    }
+
+
+    if (audio.paused) {
+
+        const reproduccion =
+            audio.play();
+
+
+        if (reproduccion !== undefined) {
+
+            reproduccion
+                .then(function() {
+
+                    iconoPlay.style.display =
+                        "none";
+
+                    iconoPause.style.display =
+                        "block";
+
+                    contenedor.classList.add(
+                        "sonando"
+                    );
+
+                })
+                .catch(function(error) {
+
+                    console.log(
+                        "No se pudo reproducir el audio:",
+                        error
+                    );
+
+                });
+
+        }
+
+    } else {
+
+        audio.pause();
+
+        iconoPlay.style.display =
+            "block";
+
+        iconoPause.style.display =
+            "none";
+
+        contenedor.classList.remove(
+            "sonando"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DETENER ANIMACIÓN SI TERMINA / PAUSA EL AUDIO
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const audio =
+            document.getElementById(
+                "audioCancion"
+            );
+
+        const contenedor =
+            document.querySelector(
+                ".reproductor-cancion"
+            );
+
+        const iconoPlay =
+            document.querySelector(
+                ".icono-play"
+            );
+
+        const iconoPause =
+            document.querySelector(
+                ".icono-pause"
+            );
+
+
+        if (!audio) {
+            return;
+        }
+
+
+        audio.addEventListener(
+            "pause",
+            function() {
+
+                if (contenedor) {
+
+                    contenedor.classList.remove(
+                        "sonando"
+                    );
+
+                }
+
+
+                if (iconoPlay) {
+
+                    iconoPlay.style.display =
+                        "block";
+
+                }
+
+
+                if (iconoPause) {
+
+                    iconoPause.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR GOOGLE FORMS
+========================================================= */
+
+function abrirFormularioRSVP() {
+
+    const modal =
+        document.getElementById(
+            "modalRSVP"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.add(
+        "visible"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   CERRAR GOOGLE FORMS
+========================================================= */
+
+function cerrarFormularioRSVP() {
+
+    const modal =
+        document.getElementById(
+            "modalRSVP"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "visible"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================================================
+   CERRAR MODAL AL HACER CLIC AFUERA
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const modal =
+            document.getElementById(
+                "modalRSVP"
+            );
+
+
+        if (
+            modal &&
+            event.target === modal
+        ) {
+
+            cerrarFormularioRSVP();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CERRAR MODAL CON ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            cerrarFormularioRSVP();
+
+        }
+
+    }
+);

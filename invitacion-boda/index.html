@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jinson & Rebeca | Nuestra Boda</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         PORTADA
+    ========================================= -->
+
+    <main class="portada" id="portada">
+
+        <div class="invitacion-imagen">
+
+            <img
+                src="img/portada-boda.png"
+                alt="Invitación de boda de Jinson y Rebeca"
+            >
+
+            <button
+                class="zona-sello"
+                id="zonaSello"
+                onclick="abrirInvitacion()"
+                aria-label="Abrir invitación"
+            ></button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         INVITACIÓN COMPLETA
+    ========================================= -->
+
+    <section class="invitacion" id="invitacion">
+
+        <div class="invitacion-contenido">
+
+
+            <!-- FOTO DE PORTADA -->
+
+            <div class="foto-portada-invitacion">
+
+                <img
+                    src="img/portada-inicial.jpeg"
+                    alt="Jinson y Rebeca"
+                >
+
+                <svg
+                    class="curva-portada"
+                    viewBox="0 0 500 60"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        d="M0,0 C150,60 350,60 500,0 L500,60 L0,60 Z"
+                        fill="#e7dcc7"
+                    ></path>
+                </svg>
+
+            </div>
+
+
+            <!-- NOMBRES -->
+
+            <p class="invitacion-eyebrow">
+                Nos casamos
+            </p>
+
+            <h1 class="invitacion-nombres">
+                Jinson &amp; Rebeca
+            </h1>
+
+            <p class="texto-invitacion-especial">
+                Invitación especial para
+            </p>
+
+            <p class="nombre-invitado" id="nombreInvitado">
+                Invitado especial
+            </p>
+
+
+            <!-- REPRODUCTOR -->
+
+            <div class="reproductor-cancion">
+
+                <button
+                    class="btn-play"
+                    id="btnPlay"
+                    onclick="toggleCancion()"
+                    aria-label="Reproducir canción"
+                >
+
+                    <svg
+                        class="icono-play"
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                    >
+                        <path
+                            d="M8 5v14l11-7z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+
+                    <svg
+                        class="icono-pause"
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        style="display:none;"
+                    >
+                        <path
+                            d="M6 5h4v14H6zM14 5h4v14h-4z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+
+                </button>
+
+                <div class="info-cancion">
+
+                    <span class="nombre-cancion">
+                        Dale play a nuestra canción
+                    </span>
+
+                </div>
+
+                <audio id="audioCancion" loop>
+
+                    <source
+                        src="audio/nuestra-cancion.mpeg"
+                        type="audio/mpeg"
+                    >
+
+                </audio>
+
+            </div>
+
+
+            <!-- MENSAJE -->
+
+            <p class="invitacion-mensaje">
+
+                Con la bendición de Dios y nuestras familias,
+                queremos compartir contigo el día más importante
+                de nuestras vidas.
+
+            </p>
+
+
+            <!-- GALERÍA -->
+
+            <div class="galeria-fotos">
+
+                <div class="foto-polaroid foto-izquierda">
+
+                    <img
+                        src="img/foto-1.jpeg"
+                        alt="Jinson y Rebeca"
+                    >
+
+                </div>
+
+                <div class="foto-polaroid foto-derecha">
+
+                    <img
+                        src="img/foto-2.jpeg"
+                        alt="Jinson y Rebeca"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVA -->
+
+            <p class="texto-reserva">
+                Reserva la fecha...
+            </p>
+
+
+            <!-- CALENDARIO -->
+
+            <div class="invitacion-fecha">
+
+                <img
+                    src="img/calendario.png"
+                    alt="Calendario de septiembre de 2026"
+                >
+
+            </div>
+
+
+            <!-- CUENTA REGRESIVA -->
+
+            <div class="franja-olivo">
+
+                <p class="texto-espera">
+                    La espera termina en...
+                </p>
+
+                <div
+                    class="cuenta-regresiva"
+                    id="cuentaRegresiva"
+                >
+
+                    <div class="unidad">
+
+                        <span class="numero" id="dias">
+                            00
+                        </span>
+
+                        <span class="etiqueta">
+                            Días
+                        </span>
+
+                    </div>
+
+                    <div class="unidad">
+
+                        <span class="numero" id="horas">
+                            00
+                        </span>
+
+                        <span class="etiqueta">
+                            Horas
+                        </span>
+
+                    </div>
+
+                    <div class="unidad">
+
+                        <span class="numero" id="minutos">
+                            00
+                        </span>
+
+                        <span class="etiqueta">
+                            Min
+                        </span>
+
+                    </div>
+
+                    <div class="unidad">
+
+                        <span class="numero" id="segundos">
+                            00
+                        </span>
+
+                        <span class="etiqueta">
+                            Seg
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DETALLES -->
+
+            <div class="detalle">
+
+                <h3>
+                    Ceremonia y Recepción
+                </h3>
+
+                <p>
+                    6:00 PM
+                </p>
+
+                <p>
+                    Eventos M.O.S.K.
+                </p>
+
+                <h3>
+                    Ubicación
+                </h3>
+
+                <p>
+                    Santa Isabel, Av. Pasaje
+                </p>
+
+                <a
+                    class="btn-ver-mapa"
+                    href="https://www.google.com/maps/search/?api=1&query=Eventos+M.O.S.K.+Santa+Isabel+Ecuador"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver mapa
+                </a>
+
+                <a
+                    class="icono-mapa-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Eventos+M.O.S.K.+Santa+Isabel+Ecuador"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <img
+                        src="img/mapa.png"
+                        alt="Ver ubicación en el mapa"
+                        class="icono-mapa"
+                    >
+
+                </a>
+
+            </div>
+
+
+            <!-- NOTAS -->
+
+            <div class="grupo-notas">
+
+                <div class="nota-imagen nota-uno">
+
+                    <img
+                        src="img/nota1.png"
+                        alt="Sugerencia de regalos"
+                    >
+
+                </div>
+
+                <div class="nota-imagen nota-dos">
+
+                    <img
+                        src="img/nota2.png"
+                        alt="Código de vestimenta"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ÁLBUM -->
+
+            <div class="nota-album">
+
+                <img
+                    src="img/Album.png"
+                    alt="Álbum de fotos"
+                >
+
+            </div>
+
+
+            <!-- NOTAS IMPORTANTES -->
+
+            <div class="notas-importantes">
+
+                <div class="nota-item">
+
+                    <h4>
+                        Nos vemos a tiempo
+                    </h4>
+
+                    <p class="nota-destacado">
+                        Llegada - 6:00 p.m.
+                    </p>
+
+                    <p>
+                        Les pedimos llegar puntualmente para contar
+                        con tiempo suficiente para su recepción y
+                        acomodo antes de la ceremonia.
+                    </p>
+
+                </div>
+
+
+                <div class="nota-item">
+
+                    <h4>
+                        Ceremonia sin interrupciones
+                    </h4>
+
+                    <p>
+                        Durante la ceremonia, agradecemos mantener
+                        los teléfonos en silencio y evitar cualquier
+                        interrupción.
+                    </p>
+
+                </div>
+
+
+                <div class="nota-item">
+
+                    <h4>
+                        Invitación personal
+                    </h4>
+
+                    <p>
+                        Válida únicamente para las personas indicadas
+                        en ella. Agradecemos no añadir acompañantes
+                        no confirmados.
+                    </p>
+
+                </div>
+
+
+                <div class="nota-item">
+
+                    <h4>
+                        Fotos y videos
+                    </h4>
+
+                    <p>
+                        Son bienvenidos siempre que no interfieran
+                        con la ceremonia ni con el trabajo de nuestros
+                        fotógrafos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ASISTENCIA -->
+
+            <div class="nota-asistencia">
+
+                <img
+                    src="img/Asistencia.png"
+                    alt="Confirma tu asistencia"
+                >
+
+            </div>
+
+
+            <!-- FIRMA -->
+
+            <div class="contenido-final">
+
+                <p class="invitacion-firma">
+                    Con cariño, Jinson &amp; Rebeca
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MODAL GOOGLE FORMS
+    ========================================= -->
+
+    <div
+        class="modal-rsvp"
+        id="modalRSVP"
+    >
+
+        <div class="modal-rsvp-contenido">
+
+            <button
+                class="cerrar-modal"
+                onclick="cerrarFormularioRSVP()"
+                aria-label="Cerrar formulario"
+            >
+                &times;
+            </button>
+
+            <h3>
+                Confirma tu asistencia
+            </h3>
+
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSd0krSmBNXZ1KrW2Q6lYu40v0xDPEpEUryDWbAspsi8Nb3Axg/viewform?embedded=true"
+                width="100%"
+                height="650"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                title="Confirmación de asistencia - Jinson y Rebeca"
+            >
+                Cargando formulario...
+            </iframe>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
