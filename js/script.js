@@ -88,8 +88,8 @@ const invitados = {
     "familia-arreaga-coello":
         "Familia Arreaga Coello (5 personas)",
 
-    "familia-maestro-ceremonia":
-        "Familia del maestro de ceremonia (5 personas)",
+    "familia-aray-loor":
+        "Familia Aray Loor (5 personas)",
 
     "familia-suconota-carchi":
         "Familia Suconota Carchi (4 personas)",
@@ -97,14 +97,11 @@ const invitados = {
     "cesar-gallegos":
         "Cesar Gallegos",
 
-    "roman-dota-esposa":
-        "Román Dota & Esposa",
+    "yolanda-ortega":
+        "Yolanda Ortega",
 
-    "esperanza-mora":
-        "Esperanza Mora",
-
-    "alberto-bermeo":
-        "Alberto Bermeo",
+    "maite-gualan-hermano":
+        "Maite Gualán y hermano",
 
     "jhonatan-toaquiza":
         "Jhonatan Toaquiza",
