@@ -115,6 +115,9 @@ const invitados = {
     "cleber-sandobay":
         "Cléber Sandobay",
 
+    "hugo-macas":
+        "Hugo Macas",
+
     "fotografos":
         "Fotógrafos (2 personas)"
 
