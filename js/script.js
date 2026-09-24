@@ -112,11 +112,17 @@ const invitados = {
     "esperanza-mora":
         "Esperanza Mora",
 
-    "cleber-sandobay":
-        "Cléber Sandobay",
+    "Clever-sandobal":
+        "Clever Sandobal",
 
     "hugo-macas":
         "Hugo Macas",
+
+    "familia-dota-calle":
+        "Familia Dota Calle",
+
+    "familia-guaman-mendez":
+        "Familia Guamán Méndez",
 
     "fotografos":
         "Fotógrafos (2 personas)"
