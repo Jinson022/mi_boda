@@ -112,6 +112,9 @@ const invitados = {
     "esperanza-mora":
         "Esperanza Mora",
 
+    "cleber-sandobay":
+        "Cléber Sandobay",
+
     "fotografos":
         "Fotógrafos (2 personas)"
 
